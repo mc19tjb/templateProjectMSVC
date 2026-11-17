@@ -1,0 +1,18 @@
+# Template .gitignore
+##################### 
+# Directories to ignore completely.
+#####################
+# Msvc Build Dirs
+out/
+build/
+
+# Package Manager Dirs
+external/
+vcpkg_installed/
+
+# Individual Files to Ignore
+#####################
+# CMakeUserPresets is used to tailor Cmake set up on
+# individual machines, so tracking it can cause problems.
+# Developers should make their own CMakeUserPresets.json 
+CMakeUserPresets.json
