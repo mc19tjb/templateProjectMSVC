@@ -86,7 +86,6 @@ As a template project, this project has few dependencies needed to build and run
   All dependencies required by the executable are declared in the vcpkg manifest file (vcpkg.json) and should be downloaded automatically when the project is configured. However, for accurate record keeping they are also listed here.
   * **Gtest** 
     * Needed to run programs in test suite.
-  * **FMT (?)**
 
 ### Setup
 #### Toolchain Setup
