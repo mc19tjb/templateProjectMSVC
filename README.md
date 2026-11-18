@@ -1,9 +1,10 @@
 # Template MSVC C++ Project
 
-![GitHub language count](https://img.shields.io/github/languages/count/mc19tjb/:repo?style=flat-square&logoSize=auto)
-![GitHub top language](https://img.shields.io/github/languages/top/mc19tjb/:repo?style=flat-square&logoSize=auto)
-![GitHub License](https://img.shields.io/github/license/mc19tjb/:repo?style=flat-square&logoSize=auto)
-![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/mc19tjb/:repo?style=flat-square&logoSize=auto)
+
+![GitHub language count](https://img.shields.io/github/languages/count/mc19tjb/templateProjectMSVC?style=flat-square&logoSize=auto)
+![GitHub top language](https://img.shields.io/github/languages/top/mc19tjb/templateProjectMSVC?style=flat-square&logoSize=auto)
+![GitHub License](https://img.shields.io/github/license/mc19tjb/templateProjectMSVC?style=flat-square&logoSize=auto)
+![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/mc19tjb/templateProjectMSVC?style=flat-square&logoSize=auto)
 ![Static Badge](https://img.shields.io/badge/Pull_Requests-Off-red?style=flat-square&logoSize=auto)
 
 ## About
@@ -49,8 +50,8 @@ As a template project, this project has few dependencies needed to build and run
   * Meta-Build system used to generate build files and control project compilation and building. 
   * We recommend downloading the latest version of CMake, as newer versions are backwards comptible with projects using older versions. However, if this is not possible, we recommend using at least version 3.23, as the FILE_SET arguement (used to group library/source headers together), and support for CMake Presets version 4 (used by this project's CMakePresets file) was added in this version.
   * While we can't ensure every part of CMakeLists.txt will work with Cmake version 3.23, using an older version of Cmake will instantly fail to compile.
-  > [!note]
-  > When Installing, remember to click the `Add Cmake to PATH` box under `Installation Options` to ensure CMake can be accessed from any program or terminal. 
+> [!note]
+> When Installing, remember to click the `Add Cmake to PATH` box under `Installation Options` to ensure CMake can be accessed from any program or terminal. 
 * **Cmake Compatible C++ Compiler (MSVC Recommended)**
   * Needed to turn your project's source code into an executable.
   * A list of Cmake compatible compilers can be found [here](https://cmake.org/cmake/help/latest/manual/cmake-compile-features.7.html#supported-compilers), however, if compiling on windows, or using either VS Code or Visual Studio we *strongly recommend* using the compiler supplied with **MSVC C++ Desktop Development tools**, as this will integrate into the CMake Tools extension, and has the most support from package managers.
@@ -59,24 +60,24 @@ As a template project, this project has few dependencies needed to build and run
   * Handles downloading third party libraries and gives instructions on how to link them into a CMake project.
   * Vcpkg can be downloaded as part of the MSVC installation (C++ for desktop development sdk)
     * The tutorial for how to set up vcpkg from this installation can be found on the Microsoft Devblog announcing [vcpkg is Now Included with Visual Studio](https://devblogs.microsoft.com/cppblog/vcpkg-is-now-included-with-visual-studio/).
-    > [!caution]
-    > The version of vcpkg downloaded as part of the MSVC C++ Desktop or Gaming Workloads *doesn't* support vcpkg classic mode, *only* vcpkg manifest mode.
+> [!caution]
+> The version of vcpkg downloaded as part of the MSVC C++ Desktop or Gaming Workloads *doesn't* support vcpkg classic mode, *only* vcpkg manifest mode.
   * Vcpkg can also be downloaded as a standalone program.
     * The tutorial for how to set up vcpkg from this installation can be found in the [vcpkg with CMake in VS Code Tutorial](https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-vscode?pivots=shell-powershell)
-  > [!note]
-  > Vcpkg doesn't need to be added to your system environment variables: in this project it's path is set as a local environment variable during [toolchain setup](#toolchain-setup).
+> [!note]
+> Vcpkg doesn't need to be added to your system environment variables: in this project it's path is set as a local environment variable during [toolchain setup](#toolchain-setup).
 * **Git**
   * Used for this project's version control.
   * Git for windows can be installed [here.](https://git-scm.com/install/windows "Download git for windows here.")
-  > [!note]
-  > When Installing, remember to click the  recommended `Git from the Command Line and also from Third Party Software` box under `Adjusting your PATH environment` to ensure git can be accessed from any program or terminal.
+> [!note]
+> When Installing, remember to click the  recommended `Git from the Command Line and also from Third Party Software` box under `Adjusting your PATH environment` to ensure git can be accessed from any program or terminal.
 * **Doxygen**
   * Needed to generate project documentation. 
   * Other documentation tools are available, however doxygen can be directly integrated into CMake and controlled within the project's CMakeLists.txt using it's [FindDoxygen Module](https://cmake.org/cmake/help/latest/module/FindDoxygen.html  "Documentation on the Module integrating doxygen into CMake") and associated commands. 
   * If `ENABLE_DOXYGEN_INTEGRATION` is set to `ON`, the project will fail to compile if doxygen can't be found as the variable sets it as a required package for the project.
     * You can download it [here](https://www.doxygen.nl/download.html "The downloads page of the official Doxygen website")
-    > [!note]
-    > The Doxygen Installer doesn't add the program to your PATH environment variable by default. To access it within VS Code, add it to your Environment variables as shown in the [toolchain setup section](#toolchain-setup).
+> [!note]
+> The Doxygen Installer doesn't add the program to your PATH environment variable by default. To access it within VS Code, add it to your Environment variables as shown in the [toolchain setup section](#toolchain-setup).
 * **CMake Tools VS Code Extension (version 1.7 or later)**
   * Provides a UI for configuring & building code, and running tests in VS Code using CMake.
   * Version 1.7 adds support for CMake Presets.
@@ -102,8 +103,8 @@ git clone [URL to your repository on github]
       * Click the 'Open CMake Tools Extension Settings' icon in the CMake Tool's Project Status UI
     2. **Command Pallete**
       * Select CMake: Open CMake Tools Extension Settings command
-    > [!note]    
-    > Open the Command Pallete with `ctrl + shift + p` 
+> [!note]    
+> Open the Command Pallete with `ctrl + shift + p` 
 6. Set the VCPKG_ROOT environment variable as the path to your vcpkg installation (the path to the folder containing vcpkg.exe on your machine.)
   * This can be set in either CMakePresets, or the terminal command line, although it is strongly recommended to set it in CMakePresets using method B (creating a CMakeUserPresets.json) as this is the most explicit way of setting the variable, gives a clear indication of where the variable is set (letting you change this from one easy to access place), and can be saved on a local machine across sessions (setting VCPKG_ROOT via a terminal may require you to re-set VCPKG_ROOT every session) :
 
